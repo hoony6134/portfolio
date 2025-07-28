@@ -1,5 +1,10 @@
 function App() {
-  return <div className="text-center">Hello</div>
+  return (
+    <div>
+      <h1>Welcome to the App Page</h1>
+      <p>This is the main application page.</p>
+    </div>
+  )
 }
 
 export default App

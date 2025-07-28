@@ -1,5 +1,11 @@
+import { Button } from '@/components/ui/button'
+
 function ProjectsPage() {
-  return <div>Hello "/projects"!</div>
+  return (
+    <Button variant="default" size="lg">
+      View Projects
+    </Button>
+  )
 }
 
 export default ProjectsPage
