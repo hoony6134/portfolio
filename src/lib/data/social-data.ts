@@ -13,6 +13,7 @@ import {
   IconBrandStackoverflow,
   IconCode,
   IconCheck,
+  IconBrandMastodon,
 } from '@tabler/icons-react'
 
 export interface SocialItem {
@@ -172,5 +173,15 @@ export const socialData: SocialItem[] = [
     gradientClasses: 'from-[#18CE3B] to-[#18CE3B]',
     verified: false,
     category: 'development',
+  },
+  {
+    id: 'mastodon',
+    name: 'Mastodon',
+    username: '@scian',
+    icon: IconBrandMastodon,
+    href: 'https://mastodon.social/@scian',
+    gradientClasses: 'from-[#6364FF] to-[#563ACC]',
+    verified: true,
+    category: 'social',
   },
 ]
