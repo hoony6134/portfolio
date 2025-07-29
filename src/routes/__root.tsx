@@ -13,7 +13,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
   component: () => (
     <>
       <Header />
-      <div className="mx-0 md:mx-12 lg:mx-24 xl:mx-48">
+      <div className="mx-6 md:mx-12 lg:mx-24 xl:mx-48">
         <Outlet />
       </div>
       <Footer />
