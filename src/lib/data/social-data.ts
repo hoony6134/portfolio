@@ -11,6 +11,7 @@ import {
   IconBrandChrome,
   IconBrandSteam,
   IconBrandStackoverflow,
+  IconCode,
 } from '@tabler/icons-react'
 
 export interface SocialItem {
@@ -25,7 +26,7 @@ export interface SocialItem {
   additionalValue?: {
     label: string
     value: string | number
-    style?: 'stack-overflow' | 'github' | 'reddit' | 'instagram'
+    style?: 'stack-overflow' | 'github' | 'reddit' | 'instagram' | 'boj'
     className?: string
   }
 }
@@ -148,6 +149,16 @@ export const socialData: SocialItem[] = [
     icon: IconBrandStackoverflow,
     href: 'https://stackoverflow.com/users/15921510/hoony6134',
     gradientClasses: 'from-[#F48024] to-[#F58A07]',
+    verified: false,
+    category: 'development',
+  },
+  {
+    id: 'boj',
+    name: 'Baekjoon Online Judge',
+    username: 'hoony6134',
+    icon: IconCode,
+    href: 'https://www.acmicpc.net/user/hoony6134',
+    gradientClasses: 'from-[#0076C0] to-[#0076C0]',
     verified: false,
     category: 'development',
   },
