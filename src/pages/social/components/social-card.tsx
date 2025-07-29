@@ -8,21 +8,12 @@ interface SocialCardProps {
   social: SocialItem
 }
 
-const getTextColorClass = (color?: string): string => {
-  switch (color) {
-    case 'orange':
-      return 'text-orange-700 dark:text-orange-300'
-    case 'blue':
-      return 'text-blue-700 dark:text-blue-300'
-    case 'green':
-      return 'text-green-700 dark:text-green-300'
-    case 'purple':
-      return 'text-purple-700 dark:text-purple-300'
-    case 'red':
-      return 'text-red-700 dark:text-red-300'
-    case 'yellow':
-      return 'text-yellow-700 dark:text-yellow-300'
-    case 'gray':
+const getTextColorClass = (style?: string): string => {
+  switch (style) {
+    case 'stack-overflow':
+      return 'text-[#F48024]'
+    case 'github':
+      return 'text-[#24292e] dark:text-[#e1e4e8]'
     default:
       return 'text-gray-700 dark:text-gray-300'
   }
@@ -88,7 +79,7 @@ function SocialCard({ social }: SocialCardProps) {
                 <>
                   <span className="mx-1">·</span>
                   <span
-                    className={`font-semibold ${social.additionalValue.className || getTextColorClass(social.additionalValue.color)}`}
+                    className={`font-semibold ${social.additionalValue.className || getTextColorClass(social.additionalValue.style)}`}
                   >
                     {social.additionalValue.value}{' '}
                     {social.additionalValue.label}

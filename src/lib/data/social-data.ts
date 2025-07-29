@@ -25,7 +25,7 @@ export interface SocialItem {
   additionalValue?: {
     label: string
     value: string | number
-    color?: 'orange' | 'blue' | 'green' | 'purple' | 'red' | 'gray' | 'yellow'
+    style?: 'stack-overflow' | 'github'
     className?: string
   }
 }

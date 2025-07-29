@@ -7,7 +7,7 @@ export const loadSocialDataWithDynamicValues = async (): Promise<
 > => {
   try {
     // 동적 데이터 로드 (병렬 처리)
-    const [stackOverflowData, githubData] = await Promise.all([
+    const [stackOverflowReputation, githubData] = await Promise.all([
       fetchStackOverFlowData(),
       fetchGitHubUserData('hoony6134'),
     ])
@@ -16,7 +16,7 @@ export const loadSocialDataWithDynamicValues = async (): Promise<
     const enhancedSocialData = [...socialData]
 
     // Stack Overflow 항목 찾기 및 reputation 추가
-    if (stackOverflowData?.reputation) {
+    if (stackOverflowReputation !== null) {
       const stackOverflowIndex = enhancedSocialData.findIndex(
         (item) => item.id === 'stackoverflow',
       )
@@ -25,8 +25,8 @@ export const loadSocialDataWithDynamicValues = async (): Promise<
           ...enhancedSocialData[stackOverflowIndex],
           additionalValue: {
             label: 'Reputation',
-            value: stackOverflowData.reputation,
-            color: 'orange',
+            value: stackOverflowReputation,
+            style: 'stack-overflow',
           },
         }
       }
@@ -43,7 +43,7 @@ export const loadSocialDataWithDynamicValues = async (): Promise<
           additionalValue: {
             label: 'Followers',
             value: githubData.followers,
-            color: 'gray',
+            style: 'github',
           },
         }
       }
