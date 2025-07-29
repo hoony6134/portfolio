@@ -1,6 +1,12 @@
 import Profile from '/public/images/profile.jpeg'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { IconBrandGithub } from '@tabler/icons-react'
+import {
+  IconAt,
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconChevronDown,
+} from '@tabler/icons-react'
+import { Link as ScrollLink } from 'react-scroll'
 import { Typewriter } from 'react-simple-typewriter'
 
 function Hero() {
@@ -33,23 +39,47 @@ function Hero() {
                 delaySpeed={1000}
               />
             </h2>
-            <div className="flex text-neutral-800 dark:text-neutral-200 hover:text-neutral-600 dark:hover:text-neutral-400 gap-4">
+            <div className="flex gap-4">
               <a
                 href="https://github.com/hoony6134"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-neutral-800 dark:text-neutral-200 hover:text-neutral-600 dark:hover:text-neutral-400"
               >
                 <IconBrandGithub stroke={1.5} />
+              </a>
+              <a
+                href="mailto:admin@scian.xyz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-neutral-800 dark:text-neutral-200 hover:text-neutral-600 dark:hover:text-neutral-400"
+              >
+                <IconAt stroke={1.5} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/hoony6134"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-neutral-800 dark:text-neutral-200 hover:text-neutral-600 dark:hover:text-neutral-400"
+              >
+                <IconBrandLinkedin stroke={1.5} />
               </a>
             </div>
           </div>
           <div className="flex-grow" />
         </div>
-        <p className="mt-8 text-lg">
-          I am a student at the University of California, Berkeley, studying
-          Computer Science and Business Administration. I am passionate about
-          building products that make a difference.
+        <p className="mt-8 text-xl">
+          I am a student at GIST, South Korea, studying Computer Science and
+          Artificial Intelligence.
+          <br />I am passionate about building innovative solutions that can{' '}
+          <span className="font-black">make changes.</span>
         </p>
+        <ScrollLink to="skills" smooth={true} duration={500}>
+          <div className="flex *:items-center justify-center mt-8 mb-4 cursor-pointer font-semibold text-neutral-800 dark:text-neutral-200 hover:text-neutral-600 dark:hover:text-neutral-400">
+            <IconChevronDown size={24} className="mr-1" />
+            Learn More
+          </div>
+        </ScrollLink>
       </div>
     </div>
   )
