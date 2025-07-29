@@ -25,7 +25,7 @@ export interface SocialItem {
   additionalValue?: {
     label: string
     value: string | number
-    style?: 'stack-overflow' | 'github'
+    style?: 'stack-overflow' | 'github' | 'reddit' | 'instagram'
     className?: string
   }
 }
@@ -34,7 +34,7 @@ export const socialData: SocialItem[] = [
   {
     id: 'email',
     name: 'E-mail',
-    username: 'Click to send an email',
+    username: 'Click to send me an email',
     icon: IconMail,
     href: 'mailto:admin@scian.xyz',
     gradientClasses: 'from-blue-500 to-blue-600',
