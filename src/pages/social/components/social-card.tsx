@@ -10,7 +10,6 @@ import {
   loadGithubData,
   loadRedditData,
   loadInstagramData,
-  loadBOJData,
 } from '../../../lib/utils/social-loader'
 
 interface SocialCardProps {
@@ -27,8 +26,6 @@ const getTextColorClass = (style?: string): string => {
       return 'text-[#FF4500]'
     case 'instagram':
       return 'text-[#C13584]'
-    case 'boj':
-      return 'text-[#0076C0]'
     default:
       return 'text-gray-700 dark:text-gray-300'
   }
@@ -47,8 +44,7 @@ function SocialCard({ social }: SocialCardProps) {
         (social.id === 'stackoverflow' ||
           social.id === 'github' ||
           social.id === 'reddit' ||
-          social.id === 'instagram' ||
-          social.id === 'boj')
+          social.id === 'instagram')
       ) {
         setIsLoading(true)
         try {
@@ -92,16 +88,6 @@ function SocialCard({ social }: SocialCardProps) {
                   label: 'Followers',
                   value: instagramData.followers,
                   style: 'instagram' as const,
-                }
-              }
-              break
-            case 'boj':
-              const bojData = await loadBOJData()
-              if (bojData?.accepted !== undefined) {
-                additionalValue = {
-                  label: 'Solved',
-                  value: bojData.accepted,
-                  style: 'boj' as const,
                 }
               }
               break
@@ -180,9 +166,7 @@ function SocialCard({ social }: SocialCardProps) {
               {isLoading &&
                 (social.id === 'stackoverflow' ||
                   social.id === 'github' ||
-                  social.id === 'reddit' ||
-                  social.id === 'instagram' ||
-                  social.id === 'boj') && (
+                  social.id === 'reddit') && (
                   <>
                     <span className="mx-1">·</span>
                     <AppleSpinner size="sm" className="text-neutral-500" />

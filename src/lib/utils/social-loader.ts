@@ -3,19 +3,17 @@ import { fetchStackOverFlowData } from './loaders/stack-overflow'
 import { fetchGitHubUserData } from './loaders/github'
 import { fetchRedditUserData } from './loaders/reddit'
 import { fetchInstagramUserData } from './loaders/instagram'
-import { fetchBOJUserData } from './loaders/boj'
 
 export const loadSocialDataWithDynamicValues = async (): Promise<
   SocialItem[]
 > => {
   try {
-    const [stackOverflowReputation, githubData, redditKarma, instagramData, bojData] =
+    const [stackOverflowReputation, githubData, redditKarma, instagramData] =
       await Promise.all([
         fetchStackOverFlowData(),
         fetchGitHubUserData('hoony6134'),
         fetchRedditUserData('applr_'),
         fetchInstagramUserData('_jh_0105'),
-        fetchBOJUserData('hoony6134'),
       ])
 
     const enhancedSocialData = [...socialData]
@@ -84,23 +82,6 @@ export const loadSocialDataWithDynamicValues = async (): Promise<
       }
     }
 
-    // BOJ 항목 찾기 및 solved 추가
-    if (bojData?.accepted !== undefined) {
-      const bojIndex = enhancedSocialData.findIndex(
-        (item) => item.id === 'boj',
-      )
-      if (bojIndex !== -1) {
-        enhancedSocialData[bojIndex] = {
-          ...enhancedSocialData[bojIndex],
-          additionalValue: {
-            label: 'Solved',
-            value: bojData.accepted,
-            style: 'boj',
-          },
-        }
-      }
-    }
-
     return enhancedSocialData
   } catch (error) {
     console.error('Failed to load dynamic social data:', error)
@@ -158,25 +139,6 @@ export const loadInstagramData = async (): Promise<{
     return null
   } catch (error) {
     console.error('Failed to load Instagram data:', error)
-    return null
-  }
-}
-
-export const loadBOJData = async (): Promise<{
-  rank: number
-  accepted: number
-} | null> => {
-  try {
-    const data = await fetchBOJUserData('hoony6134')
-    if (data && data.accepted !== undefined) {
-      return {
-        rank: data.rank || 0,
-        accepted: data.accepted,
-      }
-    }
-    return null
-  } catch (error) {
-    console.error('Failed to load BOJ data:', error)
     return null
   }
 }
