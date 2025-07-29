@@ -3,8 +3,8 @@ import SocialCard from './components/social-card'
 import {
   createSocialCategories,
   type SocialCategory,
-} from '../../lib/data/social-categories'
-import { socialData } from '../../lib/data/social-data'
+} from '@/lib/data/social-categories'
+import { socialData, type SocialItem } from '@/lib/data/social-data'
 
 function SocialPage() {
   const [socialCategories, setSocialCategories] = useState<SocialCategory[]>([])
@@ -30,7 +30,7 @@ function SocialPage() {
                 {category.name}
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
-                {category.items.map((social) => (
+                {category.items.map((social: SocialItem) => (
                   <SocialCard key={social.id} social={social} />
                 ))}
               </div>
