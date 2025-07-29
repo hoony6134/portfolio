@@ -1,32 +1,11 @@
 import {
   IconChevronRight,
-  IconPointFilled,
   IconRosetteDiscountCheckFilled,
 } from '@tabler/icons-react'
 import type { SocialItem } from '../../../lib/data/social-data'
 
 interface SocialCardProps {
   social: SocialItem
-}
-
-const getColorClasses = (color?: string): string => {
-  switch (color) {
-    case 'orange':
-      return 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300'
-    case 'blue':
-      return 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
-    case 'green':
-      return 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300'
-    case 'purple':
-      return 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300'
-    case 'red':
-      return 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300'
-    case 'yellow':
-      return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300'
-    case 'gray':
-    default:
-      return 'bg-gray-100 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300'
-  }
 }
 
 const getTextColorClass = (color?: string): string => {
