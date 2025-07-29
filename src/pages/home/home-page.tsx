@@ -1,13 +1,16 @@
 import Hero from './components/hero'
 import Skills from './components/skills'
+import { Element } from 'react-scroll'
 
 function HomePage() {
   return (
     <div>
-      <Hero />
-      <Skills />
-      <h1>Welcome to the Home Page</h1>
-      <p>This is the main content of the home page.</p>
+      <Element name="hero">
+        <Hero />
+      </Element>
+      <Element name="skills">
+        <Skills />
+      </Element>
     </div>
   )
 }
