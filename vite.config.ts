@@ -27,6 +27,14 @@ export default defineConfig({
           'User-Agent': 'portfolio-app/1.0',
         },
       },
+      '/api/solvedac': {
+        target: 'https://solved.ac',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/solvedac/, ''),
+        headers: {
+          'User-Agent': 'portfolio-app/1.0',
+        },
+      },
     },
   },
 })

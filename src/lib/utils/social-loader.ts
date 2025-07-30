@@ -3,17 +3,19 @@ import { fetchStackOverFlowData } from './loaders/stack-overflow'
 import { fetchGitHubUserData } from './loaders/github'
 import { fetchRedditUserData } from './loaders/reddit'
 import { fetchInstagramUserData } from './loaders/instagram'
+import { fetchSolvedac } from './loaders/solvedac'
 
 export const loadSocialDataWithDynamicValues = async (): Promise<
   SocialItem[]
 > => {
   try {
-    const [stackOverflowReputation, githubData, redditKarma, instagramData] =
+    const [stackOverflowReputation, githubData, redditKarma, instagramData, solvedacData] =
       await Promise.all([
         fetchStackOverFlowData(),
         fetchGitHubUserData('hoony6134'),
         fetchRedditUserData('applr_'),
         fetchInstagramUserData('_jh_0105'),
+        fetchSolvedac(),
       ])
 
     const enhancedSocialData = [...socialData]
@@ -82,6 +84,24 @@ export const loadSocialDataWithDynamicValues = async (): Promise<
       }
     }
 
+    if (solvedacData?.tierName) {
+      const solvedacIndex = enhancedSocialData.findIndex(
+        (item) => item.id === 'solved.ac',
+      )
+      if (solvedacIndex !== -1) {
+        enhancedSocialData[solvedacIndex] = {
+          ...enhancedSocialData[solvedacIndex],
+          additionalValue: {
+            label: '',
+            value: solvedacData.tierName,
+            style: 'solvedac',
+            className: `font-bold`,
+          },
+          gradientClasses: `from-[${solvedacData.tierColor}] to-[${solvedacData.tierColor}]`,
+        }
+      }
+    }
+
     return enhancedSocialData
   } catch (error) {
     console.error('Failed to load dynamic social data:', error)
@@ -139,6 +159,15 @@ export const loadInstagramData = async (): Promise<{
     return null
   } catch (error) {
     console.error('Failed to load Instagram data:', error)
+    return null
+  }
+}
+
+export const loadSolvedacData = async () => {
+  try {
+    return await fetchSolvedac()
+  } catch (error) {
+    console.error('Failed to load Solved.ac data:', error)
     return null
   }
 }

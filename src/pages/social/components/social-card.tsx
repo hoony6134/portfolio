@@ -3,14 +3,15 @@ import {
   IconChevronRight,
   IconRosetteDiscountCheckFilled,
 } from '@tabler/icons-react'
-import type { SocialItem } from '../../../lib/data/social-data'
-import { AppleSpinner } from '../../../components/ui/spinner'
+import type { SocialItem } from '@/lib/data/social-data'
+import { AppleSpinner } from '@/components/ui/spinner'
 import {
   loadStackOverflowData,
   loadGithubData,
   loadRedditData,
   loadInstagramData,
-} from '../../../lib/utils/social-loader'
+  loadSolvedacData,
+} from '@/lib/utils/social-loader'
 
 interface SocialCardProps {
   social: SocialItem
@@ -26,6 +27,8 @@ const getTextColorClass = (style?: string): string => {
       return 'text-[#FF4500]'
     case 'instagram':
       return 'text-[#C13584]'
+    case 'solvedac':
+      return 'text-[#18CE3B]'
     default:
       return 'text-gray-700 dark:text-gray-300'
   }
@@ -34,17 +37,19 @@ const getTextColorClass = (style?: string): string => {
 function SocialCard({ social }: SocialCardProps) {
   const [socialData, setSocialData] = useState<SocialItem>(social)
   const [isLoading, setIsLoading] = useState(false)
+  const [tierColor, setTierColor] = useState<string | null>(null)
   const IconComponent = social.icon
 
   useEffect(() => {
     const loadDynamicData = async () => {
       // 동적 데이터가 필요한 항목들만 로딩
       if (
-        !social.additionalValue &&
-        (social.id === 'stackoverflow' ||
-          social.id === 'github' ||
-          social.id === 'reddit' ||
-          social.id === 'instagram')
+        (social.id === 'solved.ac' && !socialData.additionalValue) ||
+        (!social.additionalValue &&
+          (social.id === 'stackoverflow' ||
+            social.id === 'github' ||
+            social.id === 'reddit' ||
+            social.id === 'instagram'))
       ) {
         setIsLoading(true)
         try {
@@ -89,6 +94,19 @@ function SocialCard({ social }: SocialCardProps) {
                   value: instagramData.followers,
                   style: 'instagram' as const,
                 }
+              }
+              break
+            case 'solved.ac':
+              const solvedacData = await loadSolvedacData()
+              if (solvedacData?.tierName) {
+                additionalValue = {
+                  label: '',
+                  value: solvedacData.tierName,
+                  style: 'solvedac' as const,
+                  className: `font-bold`,
+                }
+                // tierColor state 설정
+                setTierColor(solvedacData.tierColor)
               }
               break
           }
@@ -139,8 +157,8 @@ function SocialCard({ social }: SocialCardProps) {
                           transition-all duration-300 relative"
           >
             <div
-              className={`absolute inset-0 rounded-full bg-gradient-to-br ${socialData.gradientClasses} 
-                           opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+              className={`absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300
+                          bg-gradient-to-br ${socialData.gradientClasses}`}
             />
             <IconComponent
               size={28}
@@ -166,7 +184,8 @@ function SocialCard({ social }: SocialCardProps) {
               {isLoading &&
                 (social.id === 'stackoverflow' ||
                   social.id === 'github' ||
-                  social.id === 'reddit') && (
+                  social.id === 'reddit' ||
+                  social.id === 'solved.ac') && (
                   <>
                     <span className="mx-1">·</span>
                     <AppleSpinner size="sm" className="text-neutral-500" />
@@ -177,6 +196,9 @@ function SocialCard({ social }: SocialCardProps) {
                   <span className="mx-1">·</span>
                   <span
                     className={`font-semibold ${socialData.additionalValue.className || getTextColorClass(socialData.additionalValue.style)}`}
+                    style={social.id === 'solved.ac' && tierColor ? {
+                      color: tierColor
+                    } : undefined}
                   >
                     {socialData.additionalValue.value}{' '}
                     {socialData.additionalValue.label}
@@ -193,8 +215,8 @@ function SocialCard({ social }: SocialCardProps) {
                           transform translate-x-2 group-hover:translate-x-0"
           >
             <div
-              className={`w-6 h-6 rounded-full bg-gradient-to-br ${socialData.gradientClasses} 
-                           flex items-center justify-center`}
+              className={`w-6 h-6 rounded-full flex items-center justify-center
+                          bg-gradient-to-br ${socialData.gradientClasses}`}
             >
               <IconChevronRight size={18} color="white" />
             </div>
