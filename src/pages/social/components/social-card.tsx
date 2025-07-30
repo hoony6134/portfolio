@@ -72,10 +72,10 @@ function SocialCard({ social }: SocialCardProps) {
               break
             case 'github':
               const githubData = await loadGithubData()
-              if (githubData?.followers !== undefined) {
+              if (githubData?.public_repos !== undefined) {
                 additionalValue = {
-                  label: 'Followers',
-                  value: githubData.followers,
+                  label: 'Repos',
+                  value: githubData.public_repos,
                   style: 'github' as const,
                 }
               }
@@ -212,9 +212,13 @@ function SocialCard({ social }: SocialCardProps) {
                   <span className="mx-1">·</span>
                   <span
                     className={`font-semibold ${socialData.additionalValue.className || getTextColorClass(socialData.additionalValue.style)}`}
-                    style={social.id === 'solved.ac' && tierColor ? {
-                      color: tierColor
-                    } : undefined}
+                    style={
+                      social.id === 'solved.ac' && tierColor
+                        ? {
+                            color: tierColor,
+                          }
+                        : undefined
+                    }
                   >
                     {socialData.additionalValue.value}{' '}
                     {socialData.additionalValue.label}

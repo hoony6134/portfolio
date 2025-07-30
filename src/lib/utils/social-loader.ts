@@ -10,15 +10,21 @@ export const loadSocialDataWithDynamicValues = async (): Promise<
   SocialItem[]
 > => {
   try {
-    const [stackOverflowReputation, githubData, redditKarma, instagramData, solvedacData, bojData] =
-      await Promise.all([
-        fetchStackOverFlowData(),
-        fetchGitHubUserData('hoony6134'),
-        fetchRedditUserData('applr_'),
-        fetchInstagramUserData('_jh_0105'),
-        fetchSolvedac(),
-        fetchBaekjoon(),
-      ])
+    const [
+      stackOverflowReputation,
+      githubData,
+      redditKarma,
+      instagramData,
+      solvedacData,
+      bojData,
+    ] = await Promise.all([
+      fetchStackOverFlowData(),
+      fetchGitHubUserData('hoony6134'),
+      fetchRedditUserData('applr_'),
+      fetchInstagramUserData('_jh_0105'),
+      fetchSolvedac(),
+      fetchBaekjoon(),
+    ])
 
     const enhancedSocialData = [...socialData]
 
@@ -38,7 +44,7 @@ export const loadSocialDataWithDynamicValues = async (): Promise<
       }
     }
 
-    if (githubData?.followers !== undefined) {
+    if (githubData?.public_repos !== undefined) {
       const githubIndex = enhancedSocialData.findIndex(
         (item) => item.id === 'github',
       )
@@ -46,8 +52,8 @@ export const loadSocialDataWithDynamicValues = async (): Promise<
         enhancedSocialData[githubIndex] = {
           ...enhancedSocialData[githubIndex],
           additionalValue: {
-            label: 'Followers',
-            value: githubData.followers,
+            label: 'Repos',
+            value: githubData.public_repos,
             style: 'github',
           },
         }
@@ -105,9 +111,7 @@ export const loadSocialDataWithDynamicValues = async (): Promise<
     }
 
     if (bojData?.displayText) {
-      const bojIndex = enhancedSocialData.findIndex(
-        (item) => item.id === 'boj',
-      )
+      const bojIndex = enhancedSocialData.findIndex((item) => item.id === 'boj')
       if (bojIndex !== -1) {
         enhancedSocialData[bojIndex] = {
           ...enhancedSocialData[bojIndex],
@@ -138,12 +142,12 @@ export const loadStackOverflowData = async (): Promise<number | null> => {
 }
 
 export const loadGithubData = async (): Promise<{
-  followers: number
+  public_repos: number
 } | null> => {
   try {
     const data = await fetchGitHubUserData('hoony6134')
-    if (data && data.followers !== undefined) {
-      return { followers: data.followers }
+    if (data && data.public_repos !== undefined) {
+      return { public_repos: data.public_repos }
     }
     return null
   } catch (error) {
