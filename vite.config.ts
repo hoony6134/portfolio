@@ -17,4 +17,16 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
     },
   },
+  server: {
+    proxy: {
+      '/api/reddit': {
+        target: 'https://www.reddit.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/reddit/, ''),
+        headers: {
+          'User-Agent': 'portfolio-app/1.0',
+        },
+      },
+    },
+  },
 })

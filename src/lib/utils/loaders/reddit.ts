@@ -1,4 +1,4 @@
-const REDDIT_API_BASE = 'https://www.reddit.com'
+const REDDIT_API_BASE = '/api/reddit'
 
 export interface RedditUserData {
   kind?: string
