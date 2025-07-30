@@ -1,5 +1,5 @@
 const URL =
-  'https://api.stackexchange.com/2.3/users/15921510?order=desc&sort=reputation&site=stackoverflow'
+  '/api/stackexchange/2.3/users/15921510?order=desc&sort=reputation&site=stackoverflow'
 
 export interface StackOverflowResponse {
   items: StackOverflowUser[]

@@ -1,2 +1,2 @@
-export * from './extract-number';
-export * from './extract-tables';
+export * from './extract-number'
+export * from './extract-tables'

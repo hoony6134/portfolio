@@ -58,7 +58,6 @@ export const fetchBaekjoon = async (): Promise<BojUserData | null> => {
     )
 
     if (!table) {
-      const allText = dom.text
       throw new Error('No such user or table structure changed')
     }
 

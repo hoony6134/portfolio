@@ -14,6 +14,8 @@ import {
   IconCode,
   IconCheck,
   IconBrandMastodon,
+  IconBrandGoogleFilled,
+  IconBrandAppstore,
 } from '@tabler/icons-react'
 
 export interface SocialItem {
@@ -28,7 +30,13 @@ export interface SocialItem {
   additionalValue?: {
     label: string
     value: string | number
-    style?: 'stack-overflow' | 'github' | 'reddit' | 'instagram' | 'solvedac' | 'boj'
+    style?:
+      | 'stack-overflow'
+      | 'github'
+      | 'reddit'
+      | 'instagram'
+      | 'solvedac'
+      | 'boj'
     className?: string
   }
 }
@@ -61,6 +69,16 @@ export const socialData: SocialItem[] = [
     icon: IconBrandGithub,
     href: 'https://github.com/hoony6134',
     gradientClasses: 'from-[#24292e] to-[#2b3137]',
+    verified: false,
+    category: 'development',
+  },
+  {
+    id: 'appstore',
+    name: 'App Store',
+    username: 'Goding',
+    icon: IconBrandAppstore,
+    href: 'https://apps.apple.com/kr/developer/goding/id1571079564',
+    gradientClasses: 'from-[#25B6FA] to-[#1A66F0]',
     verified: false,
     category: 'development',
   },
@@ -183,5 +201,15 @@ export const socialData: SocialItem[] = [
     gradientClasses: 'from-[#6364FF] to-[#563ACC]',
     verified: true,
     category: 'social',
+  },
+  {
+    id: 'google-dev',
+    name: 'Google Dev Profile',
+    username: 'cyan',
+    icon: IconBrandGoogleFilled,
+    href: 'https://g.dev/cyan',
+    gradientClasses: 'from-[#0F9D58] to-[#4285F4]',
+    verified: false,
+    category: 'development',
   },
 ]
