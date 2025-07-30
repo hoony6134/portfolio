@@ -1,12 +1,39 @@
 {
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "https://portfolio-team-scian.vercel.app/api/$1"
+      "source": "/api/reddit/(.*)",
+      "destination": "https://www.reddit.com/$1"
+    },
+    {
+      "source": "/api/solvedac/(.*)",
+      "destination": "https://solved.ac/$1"
+    },
+    {
+      "source": "/api/boj/(.*)",
+      "destination": "https://www.acmicpc.net/$1"
+    },
+    {
+      "source": "/api/stackexchange/(.*)",
+      "destination": "https://api.stackexchange.com/$1"
     },
     {
       "source": "/(.*)",
       "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "User-Agent",
+          "value": "Mozilla/5.0 (compatible; portfolio-app/1.0)"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
     }
   ]
 }
