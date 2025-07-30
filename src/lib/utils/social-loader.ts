@@ -4,18 +4,20 @@ import { fetchGitHubUserData } from './loaders/github'
 import { fetchRedditUserData } from './loaders/reddit'
 import { fetchInstagramUserData } from './loaders/instagram'
 import { fetchSolvedac } from './loaders/solvedac'
+import { fetchBaekjoon } from './loaders/boj'
 
 export const loadSocialDataWithDynamicValues = async (): Promise<
   SocialItem[]
 > => {
   try {
-    const [stackOverflowReputation, githubData, redditKarma, instagramData, solvedacData] =
+    const [stackOverflowReputation, githubData, redditKarma, instagramData, solvedacData, bojData] =
       await Promise.all([
         fetchStackOverFlowData(),
         fetchGitHubUserData('hoony6134'),
         fetchRedditUserData('applr_'),
         fetchInstagramUserData('_jh_0105'),
         fetchSolvedac(),
+        fetchBaekjoon(),
       ])
 
     const enhancedSocialData = [...socialData]
@@ -102,6 +104,23 @@ export const loadSocialDataWithDynamicValues = async (): Promise<
       }
     }
 
+    if (bojData?.displayText) {
+      const bojIndex = enhancedSocialData.findIndex(
+        (item) => item.id === 'boj',
+      )
+      if (bojIndex !== -1) {
+        enhancedSocialData[bojIndex] = {
+          ...enhancedSocialData[bojIndex],
+          additionalValue: {
+            label: '',
+            value: bojData.displayText,
+            style: 'boj',
+            className: 'font-bold text-[#0076C0]',
+          },
+        }
+      }
+    }
+
     return enhancedSocialData
   } catch (error) {
     console.error('Failed to load dynamic social data:', error)
@@ -168,6 +187,15 @@ export const loadSolvedacData = async () => {
     return await fetchSolvedac()
   } catch (error) {
     console.error('Failed to load Solved.ac data:', error)
+    return null
+  }
+}
+
+export const loadBojData = async () => {
+  try {
+    return await fetchBaekjoon()
+  } catch (error) {
+    console.error('Failed to load Baekjoon data:', error)
     return null
   }
 }

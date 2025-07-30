@@ -28,7 +28,7 @@ export interface SocialItem {
   additionalValue?: {
     label: string
     value: string | number
-    style?: 'stack-overflow' | 'github' | 'reddit' | 'instagram' | 'solvedac'
+    style?: 'stack-overflow' | 'github' | 'reddit' | 'instagram' | 'solvedac' | 'boj'
     className?: string
   }
 }

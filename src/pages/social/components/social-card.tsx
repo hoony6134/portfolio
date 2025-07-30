@@ -11,6 +11,7 @@ import {
   loadRedditData,
   loadInstagramData,
   loadSolvedacData,
+  loadBojData,
 } from '@/lib/utils/social-loader'
 
 interface SocialCardProps {
@@ -29,6 +30,8 @@ const getTextColorClass = (style?: string): string => {
       return 'text-[#C13584]'
     case 'solvedac':
       return 'text-[#18CE3B]'
+    case 'boj':
+      return 'text-[#0076C0]'
     default:
       return 'text-gray-700 dark:text-gray-300'
   }
@@ -45,6 +48,7 @@ function SocialCard({ social }: SocialCardProps) {
       // 동적 데이터가 필요한 항목들만 로딩
       if (
         (social.id === 'solved.ac' && !socialData.additionalValue) ||
+        (social.id === 'boj' && !socialData.additionalValue) ||
         (!social.additionalValue &&
           (social.id === 'stackoverflow' ||
             social.id === 'github' ||
@@ -107,6 +111,17 @@ function SocialCard({ social }: SocialCardProps) {
                 }
                 // tierColor state 설정
                 setTierColor(solvedacData.tierColor)
+              }
+              break
+            case 'boj':
+              const bojData = await loadBojData()
+              if (bojData?.displayText) {
+                additionalValue = {
+                  label: '',
+                  value: bojData.displayText,
+                  style: 'boj' as const,
+                  className: 'font-bold text-[#0076C0]',
+                }
               }
               break
           }
@@ -185,7 +200,8 @@ function SocialCard({ social }: SocialCardProps) {
                 (social.id === 'stackoverflow' ||
                   social.id === 'github' ||
                   social.id === 'reddit' ||
-                  social.id === 'solved.ac') && (
+                  social.id === 'solved.ac' ||
+                  social.id === 'boj') && (
                   <>
                     <span className="mx-1">·</span>
                     <AppleSpinner size="sm" className="text-neutral-500" />
