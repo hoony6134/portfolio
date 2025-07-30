@@ -146,7 +146,6 @@ export const fetchSolvedac = async (): Promise<SolvedacUserData | null> => {
       arenaMaxTierColor: resolveSolvedacArenaColor(data.arenaMaxTier || 0),
     }
   } catch (error) {
-    t
     console.error('Failed to fetch Solved.ac user data:', error)
     return null
   }
