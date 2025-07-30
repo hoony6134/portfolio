@@ -22,7 +22,6 @@ export const fetchInstagramUserData = async (
       throw new Error(`HTTP error! status: ${response.status}`)
     }
     const data = await response.json()
-    console.log('Instagram data fetched:', data)
 
     if (!data.status) {
       throw new Error('Instagram API returned unsuccessful status')
