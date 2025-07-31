@@ -4,8 +4,8 @@ import { IconExternalLink } from '@tabler/icons-react'
 
 export default function Header() {
   return (
-    <div className="fixed *:top-0 left-0 w-full z-50">
-      <nav className="flex items-center justify-between bg-transparent mx-6 md:mx-12 lg:mx-24 xl:mx-48 py-4">
+    <div className="fixed top-0 left-0 w-full bg-white/20 backdrop-blur-lg border border-white/30 z-50">
+      <nav className="flex items-center justify-between mx-6 md:mx-12 lg:mx-24 xl:mx-48 py-4">
         <Link to="/" className="text-lg font-semibold">
           <p className="text-2xl">
             <span className="font-black">Je</span>
