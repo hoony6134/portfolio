@@ -1,4 +1,4 @@
-import { socialData, type SocialItem } from '../data/social-data'
+import { socialData, type SocialItem } from '../data/social/social-data'
 import { fetchStackOverFlowData } from './loaders/stack-overflow'
 import { fetchGitHubUserData } from './loaders/github'
 import { fetchRedditUserData } from './loaders/reddit'

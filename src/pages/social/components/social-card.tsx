@@ -3,7 +3,7 @@ import {
   IconChevronRight,
   IconRosetteDiscountCheckFilled,
 } from '@tabler/icons-react'
-import type { SocialItem } from '@/lib/data/social-data'
+import type { SocialItem } from '@/lib/data/social/social-data'
 import { AppleSpinner } from '@/components/ui/spinner'
 import {
   loadStackOverflowData,
