@@ -14,7 +14,6 @@ const userAgent = `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 
 export const fetchBaekjoon = async (): Promise<BojUserData | null> => {
   try {
     const proxyUrl = `${BOJ_API_BASE}/user/${USERNAME}`
-    const directUrl = `https://www.acmicpc.net/user/${USERNAME}`
 
     const response = await fetch(proxyUrl, {
       headers: {
