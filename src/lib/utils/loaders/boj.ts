@@ -15,93 +15,47 @@ export const fetchBaekjoon = async (): Promise<BojUserData | null> => {
   try {
     const proxyUrl = `${BOJ_API_BASE}/user/${USERNAME}`
 
-    console.log('Fetching Baekjoon data from proxy:', proxyUrl) // 디버깅용 로그 추가
+    const response = await fetch(proxyUrl)
 
-    const response = await fetch(proxyUrl, {
-      headers: {
-        'User-Agent': userAgent,
-        Accept:
-          'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'ko-KR,ko;q=0.8,en-US;q=0.5,en;q=0.3',
-        'Cache-Control': 'no-cache',
-        Pragma: 'no-cache',
-      },
-    })
+    if (!response.ok) {
+      throw new Error(`Failed to fetch data: ${response.status}`)
+    }
 
-    console.log('Proxy response status:', response.status) // 응답 상태 로깅
+    const data = await response.text()
 
-    if (response.ok) {
-      const data = await response.text()
+    if (data.length === 0) {
+      throw new Error('Empty response received')
+    }
 
-      console.log('Proxy response data length:', data.length) // 응답 데이터 길이 로깅
+    const $ = cheerio.load(data)
+    let rank = 0
+    let accepted = 0
 
-      if (data.length > 0) {
-        return parseBaekjoonData(data)
+    $('table tr').each((_, row) => {
+      const th = $(row).find('th')
+      const td = $(row).find('td')
+
+      if (th.text() === '등수') {
+        rank = parseInt(td.text().replace(/,/g, ''), 10)
+      } else if (th.text() === '맞은 문제') {
+        accepted = parseInt(td.text().replace(/,/g, ''), 10)
       }
-    }
-
-    console.warn('Proxy failed, falling back to direct API call.')
-
-    // 프록시 실패 시 직접 API 호출
-    const directUrl = `https://www.acmicpc.net/user/${USERNAME}`
-    const directResponse = await fetch(directUrl, {
-      headers: {
-        'User-Agent': userAgent,
-        Accept:
-          'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'ko-KR,ko;q=0.8,en-US;q=0.5,en;q=0.3',
-        'Cache-Control': 'no-cache',
-        Pragma: 'no-cache',
-      },
     })
 
-    console.log('Direct API response status:', directResponse.status) // 직접 호출 응답 상태 로깅
-
-    if (!directResponse.ok) {
-      throw new Error(`Direct API call failed: ${directResponse.status}`)
+    if (rank === 0 || accepted === 0) {
+      throw new Error(
+        'Could not find rank or accepted problems count. The table structure might have changed.',
+      )
     }
 
-    const directData = await directResponse.text()
-
-    console.log('Direct API response data length:', directData.length) // 직접 호출 응답 데이터 길이 로깅
-
-    if (directData.length === 0) {
-      throw new Error('Empty response received from direct API call')
+    return {
+      rank,
+      accepted,
+      displayText: `#${rank} / ${accepted}`,
     }
-
-    return parseBaekjoonData(directData)
   } catch (error) {
     console.error('Failed to fetch Baekjoon user data:', error)
     return null
-  }
-}
-
-const parseBaekjoonData = (data: string): BojUserData => {
-  const $ = cheerio.load(data)
-  let rank = 0
-  let accepted = 0
-
-  $('table tr').each((_, row) => {
-    const th = $(row).find('th')
-    const td = $(row).find('td')
-
-    if (th.text() === '등수') {
-      rank = parseInt(td.text().replace(/,/g, ''), 10)
-    } else if (th.text() === '맞은 문제') {
-      accepted = parseInt(td.text().replace(/,/g, ''), 10)
-    }
-  })
-
-  if (rank === 0 || accepted === 0) {
-    throw new Error(
-      'Could not find rank or accepted problems count. The table structure might have changed.',
-    )
-  }
-
-  return {
-    rank,
-    accepted,
-    displayText: `#${rank} / ${accepted}`,
   }
 }
 
