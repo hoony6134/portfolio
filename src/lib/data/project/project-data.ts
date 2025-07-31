@@ -1,9 +1,22 @@
 import { projectLinks, type ProjectLink } from './project-link'
 import { projectSkills, type ProjectSkill } from './project-skills'
 
+function getProjectLinkById(id: string): ProjectLink {
+  const link = projectLinks.find((link) => link.id === id)
+  if (!link) throw new Error(`ProjectLink not found: ${id}`)
+  return link
+}
+
+function getProjectSkillById(id: string): ProjectSkill {
+  const skill = projectSkills.find((skill) => skill.id === id)
+  if (!skill) throw new Error(`ProjectSkill not found: ${id}`)
+  return skill
+}
+
 export interface ProjectData {
   id: string
   title: string
+  verified?: boolean
   subtitle: string
   date: string
   featured: boolean
@@ -19,6 +32,7 @@ export const projectData: ProjectData[] = [
   {
     id: 'nutricheck',
     title: 'NutriCheck',
+    verified: true,
     subtitle: 'AI-Based Nutrition Analysis Platform',
     date: '2021',
     featured: true,
@@ -28,13 +42,11 @@ export const projectData: ProjectData[] = [
     description:
       'NutriCheck is a research project that overcomes the limitations of textbook nutrient‐detection experiments through color‐chart analysis and the development of a smartphone/AI application. ',
     thumbnail: 'https://i.imgur.com/cA5eDrd.png',
-    links: [
-      projectLinks.find((link) => link.id === 'nutricheck-documentation')!,
-    ],
+    links: [getProjectLinkById('nutricheck-documentation')],
     skills: [
-      projectSkills.find((skill) => skill.id === 'ai')!,
-      projectSkills.find((skill) => skill.id === 'web-development')!,
-      projectSkills.find((skill) => skill.id === 'swift')!,
+      getProjectSkillById('ai'),
+      getProjectSkillById('web-development'),
+      getProjectSkillById('swift'),
     ],
   },
 ]

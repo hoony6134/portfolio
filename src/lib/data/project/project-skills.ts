@@ -1,4 +1,6 @@
-import { IconBrain, IconBrandSwift, IconGlobe } from '@tabler/icons-react'
+import { FaBrain } from 'react-icons/fa'
+import { VscGlobe } from 'react-icons/vsc'
+import { SiSwift } from 'react-icons/si'
 
 export interface ProjectSkill {
   id: string
@@ -13,14 +15,14 @@ export const projectSkills: ProjectSkill[] = [
   {
     id: 'ai',
     name: 'Artificial Intelligence',
-    icon: IconBrain,
+    icon: FaBrain,
     style: 'bg-blue-500 text-white',
     description: 'Experience in developing AI models and applications.',
   },
   {
     id: 'web-development',
     name: 'Web Development',
-    icon: IconGlobe,
+    icon: VscGlobe,
     style: 'bg-green-500 text-white',
     description:
       'Proficient in building responsive and dynamic web applications.',
@@ -28,7 +30,7 @@ export const projectSkills: ProjectSkill[] = [
   {
     id: 'swift',
     name: 'Swift',
-    icon: IconBrandSwift,
+    icon: SiSwift,
     style: 'bg-orange-500 text-white',
     description: 'Skilled in developing iOS applications using Swift.',
   },
