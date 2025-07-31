@@ -13,7 +13,11 @@ export const fetchBaekjoon = async (): Promise<BojUserData | null> => {
   try {
     const proxyUrl = `${BOJ_API_BASE}/user/${USERNAME}`
 
-    const response = await fetch(proxyUrl)
+    const response = await fetch(proxyUrl, {
+      headers: {
+        'Sec-Fetch-Dest': 'document',
+      },
+    })
 
     if (!response.ok) {
       throw new Error(`Failed to fetch data: ${response.status}`)
