@@ -1,5 +1,4 @@
-import parse from 'node-html-parser'
-import { extractOnlyKeyValueTables, extractNumber } from '../boj-parser'
+import * as cheerio from 'cheerio'
 
 const BOJ_API_BASE = '/api/boj'
 const USERNAME = 'hoony6134'
@@ -17,7 +16,7 @@ export const fetchBaekjoon = async (): Promise<BojUserData | null> => {
     const proxyUrl = `${BOJ_API_BASE}/user/${USERNAME}`
     const directUrl = `https://www.acmicpc.net/user/${USERNAME}`
 
-    let response = await fetch(proxyUrl, {
+    const response = await fetch(proxyUrl, {
       headers: {
         'User-Agent': userAgent,
         Accept:
@@ -29,18 +28,7 @@ export const fetchBaekjoon = async (): Promise<BojUserData | null> => {
     })
 
     if (!response.ok) {
-      try {
-        response = await fetch(directUrl, {
-          mode: 'no-cors',
-          headers: {
-            'User-Agent': userAgent,
-          },
-        })
-      } catch (directError) {
-        throw new Error(
-          `Both proxy and direct requests failed. Proxy status: ${response.status}`,
-        )
-      }
+      throw new Error(`Failed to fetch data: ${response.status}`)
     }
 
     const data = await response.text()
@@ -48,28 +36,27 @@ export const fetchBaekjoon = async (): Promise<BojUserData | null> => {
     if (data.length === 0) {
       throw new Error('Empty response received')
     }
-    const dom = parse(data)
-    const candidateTables = extractOnlyKeyValueTables(dom)
 
-    const table = candidateTables.find(
-      (table) =>
-        table.some(({ key }) => key.text === '등수') &&
-        table.some(({ key }) => key.text === '맞은 문제'),
-    )
+    const $ = cheerio.load(data)
+    let rank = 0
+    let accepted = 0
 
-    if (!table) {
-      throw new Error('No such user or table structure changed')
+    $('table tr').each((_, row) => {
+      const th = $(row).find('th')
+      const td = $(row).find('td')
+
+      if (th.text() === '등수') {
+        rank = parseInt(td.text().replace(/,/g, ''), 10)
+      } else if (th.text() === '맞은 문제') {
+        accepted = parseInt(td.text().replace(/,/g, ''), 10)
+      }
+    })
+
+    if (rank === 0 || accepted === 0) {
+      throw new Error(
+        'Could not find rank or accepted problems count. The table structure might have changed.',
+      )
     }
-
-    const rankRow = table.find(({ key }) => key.text === '등수')
-    const acceptedRow = table.find(({ key }) => key.text === '맞은 문제')
-
-    if (!rankRow || !acceptedRow) {
-      throw new Error('Required fields not found')
-    }
-
-    const rank = +extractNumber(rankRow.value.text)
-    const accepted = +extractNumber(acceptedRow.value.text)
 
     return {
       rank,
