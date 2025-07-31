@@ -15,6 +15,8 @@ export const fetchBaekjoon = async (): Promise<BojUserData | null> => {
   try {
     const proxyUrl = `${BOJ_API_BASE}/user/${USERNAME}`
 
+    console.log('Fetching Baekjoon data from:', proxyUrl) // 디버깅용 로그 추가
+
     const response = await fetch(proxyUrl, {
       headers: {
         'User-Agent': userAgent,
@@ -26,11 +28,15 @@ export const fetchBaekjoon = async (): Promise<BojUserData | null> => {
       },
     })
 
+    console.log('Response status:', response.status) // 응답 상태 로깅
+
     if (!response.ok) {
       throw new Error(`Failed to fetch data: ${response.status}`)
     }
 
     const data = await response.text()
+
+    console.log('Response data length:', data.length) // 응답 데이터 길이 로깅
 
     if (data.length === 0) {
       throw new Error('Empty response received')
