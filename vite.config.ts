@@ -46,15 +46,15 @@ export default defineConfig({
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
           'Sec-Fetch-Dest': 'document',
         },
-        configure: (proxy, _options) => {
-          proxy.on('proxyReq', (proxyReq, _req, _res) => {
-            console.log('Proxying request to:', proxyReq.path)
-          })
-          proxy.on('proxyRes', (proxyRes, _req, _res) => {
-            console.log('Proxy response status:', proxyRes.statusCode)
-            console.log('Proxy response headers:', proxyRes.headers)
-          })
-        },
+        // configure: (proxy, _options) => {
+        //   proxy.on('proxyReq', (proxyReq, _req, _res) => {
+        //     console.log('Proxying request to:', proxyReq.path)
+        //   })
+        //   proxy.on('proxyRes', (proxyRes, _req, _res) => {
+        //     console.log('Proxy response status:', proxyRes.statusCode)
+        //     console.log('Proxy response headers:', proxyRes.headers)
+        //   })
+        // },
       },
       '/api/stackexchange': {
         target: 'https://api.stackexchange.com',
