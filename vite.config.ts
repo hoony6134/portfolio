@@ -39,7 +39,6 @@ export default defineConfig({
       '/api/boj': {
         target: 'https://www.acmicpc.net',
         changeOrigin: true,
-        secure: true,
         rewrite: (path) => path.replace(/^\/api\/boj/, ''),
         headers: {
           'User-Agent':
