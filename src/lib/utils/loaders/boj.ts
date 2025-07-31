@@ -9,8 +9,6 @@ export interface BojUserData {
   displayText: string
 }
 
-const userAgent = `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3`
-
 export const fetchBaekjoon = async (): Promise<BojUserData | null> => {
   try {
     const proxyUrl = `${BOJ_API_BASE}/user/${USERNAME}`
