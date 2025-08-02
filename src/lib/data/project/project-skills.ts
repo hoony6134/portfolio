@@ -14,16 +14,18 @@ export interface ProjectSkill {
 export const projectSkills: ProjectSkill[] = [
   {
     id: 'ai',
-    name: 'Artificial Intelligence',
+    name: 'AI',
     icon: FaBrain,
-    style: 'bg-blue-500 text-white',
+    style:
+      'bg-gradient-to-br from-blue-500 to-purple-500 dark:from-blue-700 dark:to-purple-700 text-white font-semibold',
     description: 'Experience in developing AI models and applications.',
   },
   {
-    id: 'web-development',
-    name: 'Web Development',
+    id: 'web',
+    name: 'Web',
     icon: VscGlobe,
-    style: 'bg-green-500 text-white',
+    style:
+      'bg-gradient-to-br from-blue-400 to-blue-600 dark:from-blue-600 dark:to-blue-800 text-white font-semibold',
     description:
       'Proficient in building responsive and dynamic web applications.',
   },
@@ -31,7 +33,8 @@ export const projectSkills: ProjectSkill[] = [
     id: 'swift',
     name: 'Swift',
     icon: SiSwift,
-    style: 'bg-orange-500 text-white',
+    style:
+      'bg-gradient-to-tr from-[#FF3627] to-[#FBAF41] text-white font-semibold',
     description: 'Skilled in developing iOS applications using Swift.',
   },
 ]

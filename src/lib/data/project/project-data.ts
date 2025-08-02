@@ -45,7 +45,7 @@ export const projectData: ProjectData[] = [
     links: [getProjectLinkById('nutricheck-documentation')],
     skills: [
       getProjectSkillById('ai'),
-      getProjectSkillById('web-development'),
+      getProjectSkillById('web'),
       getProjectSkillById('swift'),
     ],
   },
