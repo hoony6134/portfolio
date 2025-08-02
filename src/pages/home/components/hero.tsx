@@ -5,7 +5,9 @@ import {
   IconBrandGithub,
   IconBrandLinkedin,
   IconChevronDown,
+  IconDots,
 } from '@tabler/icons-react'
+import { Link } from '@tanstack/react-router'
 import { Link as ScrollLink } from 'react-scroll'
 import { Typewriter } from 'react-simple-typewriter'
 
@@ -64,6 +66,12 @@ function Hero() {
               >
                 <IconBrandLinkedin stroke={1.5} />
               </a>
+              <Link
+                to="/social"
+                className="text-neutral-800 dark:text-neutral-200 hover:text-neutral-600 dark:hover:text-neutral-400"
+              >
+                <IconDots stroke={1.5} />
+              </Link>
             </div>
           </div>
           <div className="flex-grow" />
