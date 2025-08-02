@@ -40,7 +40,7 @@ function ProjectCard({ project }: ProjectCardProps) {
             </span>
           )}
         </h2>
-        <p className="text-gray-400 dark:text-gray-600 mb-4">
+        <p className="text-neutral-700 dark:text-neutral-300 mb-4">
           {project.headline}
         </p>
 
