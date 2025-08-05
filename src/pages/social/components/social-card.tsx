@@ -230,7 +230,7 @@ function SocialCard({ social }: SocialCardProps) {
 
           {/* Arrow indicator */}
           <div
-            className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 
+            className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 
                           transition-all duration-300 ease-out
                           transform translate-x-2 group-hover:translate-x-0"
           >
