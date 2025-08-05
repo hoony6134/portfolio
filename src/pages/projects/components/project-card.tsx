@@ -67,7 +67,7 @@ function ProjectCard({ project }: ProjectCardProps) {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-2 px-2 py-1 rounded border border-gray-500 text-gray-500 ${link.style}`}
+              className={`flex items-center gap-2 px-2 py-1 rounded border-[1.5px] border-neutral-700 text-neutral-700 dark:border-neutral-300 dark:text-neutral-300 transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-800 font-semibold ${link.style}`}
             >
               <link.icon className="w-5 h-5" />
               {link.title}
