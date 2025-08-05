@@ -13,7 +13,7 @@ const timelineItems = [
   {
     id: 1,
     date: 'Mar 2020',
-    title: 'Entrance of KAIST IP-CEO Program',
+    title: 'Entered KAIST IP-CEO Program',
     description:
       'Applied and accepted to KAIST IP-CEO Program, 2-year program specializing in intellectual property and entrepreneurship.',
   },
@@ -27,14 +27,14 @@ const timelineItems = [
   {
     id: 3,
     date: 'Feb 2022',
-    title: 'Graduation of KAIST IP-CEO Program',
+    title: 'Graduated from KAIST IP-CEO Program',
     description:
       'Graduated from KAIST IP-CEO Program as 11th, for having 757+ hours of education regarding entrepreneurship and filed 5 patent applications.',
   },
   {
     id: 4,
     date: 'Mar 2022',
-    title: 'Entrance of Daejeon Dongsin Science High School',
+    title: 'Entered Daejeon Dongsin Science High School',
     description:
       'Applied to the school and successfully enrolled in the prestigious science program, specializing in advanced scientific research and experimentation.',
   },
@@ -63,14 +63,14 @@ const timelineItems = [
   {
     id: 8,
     date: 'Jan 2025',
-    title: 'Graduation of Daejeon Dongsin Science High School',
+    title: 'Graduated from Daejeon Dongsin Science High School',
     description:
       'Graduated from Daejeon Dongsin Science High School, completing advanced studies in science and technology.',
   },
   {
     id: 9,
     date: 'Feb 2025',
-    title: 'Entrance of Gwangju Institute of Science and Technology (GIST)',
+    title: 'Entered Gwangju Institute of Science and Technology (GIST)',
     description:
       'Applied and accepted to Gwangju Institute of Science and Technology (GIST), pursuing advanced studies in science and technology.',
   },
