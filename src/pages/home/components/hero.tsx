@@ -82,7 +82,7 @@ function Hero() {
           <br />I am passionate about building innovative solutions that can{' '}
           <span className="font-black">make changes.</span>
         </p>
-        <ScrollLink to="skills" smooth={true} duration={500}>
+        <ScrollLink to="experience" smooth={true} duration={500}>
           <div className="flex *:items-center justify-center mt-8 mb-4 cursor-pointer font-semibold text-neutral-800 dark:text-neutral-200 hover:text-neutral-600 dark:hover:text-neutral-400">
             <IconChevronDown size={24} className="mr-1" />
             Learn More

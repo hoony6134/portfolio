@@ -42,7 +42,7 @@ export const projectData: ProjectData[] = [
     description:
       'NutriCheck is a research project that overcomes the limitations of textbook nutrient‐detection experiments through color‐chart analysis and the development of a smartphone/AI application. ',
     thumbnail: 'https://i.imgur.com/cA5eDrd.png',
-    links: [getProjectLinkById('nutricheck-documentation')],
+    links: [getProjectLinkById('nutricheck-intro')],
     skills: [
       getProjectSkillById('ai'),
       getProjectSkillById('web'),

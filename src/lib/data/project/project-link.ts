@@ -11,8 +11,8 @@ export interface ProjectLink {
 
 export const projectLinks: ProjectLink[] = [
   {
-    id: 'nutricheck-documentation',
-    title: 'Documentation',
+    id: 'nutricheck-intro',
+    title: 'Intro',
     url: 'https://viewer.science.go.kr:8080/SynapDocViewServer/viewer/doc.html?key=ffc3d805310a4bf7bd0440a280c3b64e&convType=img&convLocale=ko_KR&contextPath=/SynapDocViewServer',
     icon: IconFileCheck,
   },
