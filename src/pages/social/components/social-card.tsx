@@ -32,6 +32,8 @@ const getTextColorClass = (style?: string): string => {
       return 'text-[#18CE3B]'
     case 'boj':
       return 'text-[#0076C0]'
+    case 'linkedin':
+      return 'text-[#0077B5]'
     default:
       return 'text-gray-700 dark:text-gray-300'
   }
@@ -53,7 +55,8 @@ function SocialCard({ social }: SocialCardProps) {
           (social.id === 'stackoverflow' ||
             social.id === 'github' ||
             social.id === 'reddit' ||
-            social.id === 'instagram'))
+            social.id === 'instagram' ||
+            social.id === 'linkedin'))
       ) {
         setIsLoading(true)
         try {

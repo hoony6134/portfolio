@@ -37,6 +37,7 @@ export interface SocialItem {
       | 'instagram'
       | 'solvedac'
       | 'boj'
+      | 'linkedin'
     className?: string
   }
 }
@@ -61,6 +62,11 @@ export const socialData: SocialItem[] = [
     gradientClasses: 'from-[#0077B5] to-[#008CC9]',
     verified: true,
     category: 'contacts',
+    additionalValue: {
+      label: 'Followers',
+      value: '1.5K+',
+      style: 'linkedin',
+    },
   },
   {
     id: 'github',
