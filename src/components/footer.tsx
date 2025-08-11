@@ -13,7 +13,7 @@ export default function Footer() {
         <IconCopyright stroke={1.25} size={18} className="mr-1.5" /> 2025
         JeongHoon Lim, All rights reserved.
       </span>
-      <div className="flex gap-4 text-neutral-700 dark:text-neutral-400">
+      <div className="flex gap-4 text-neutral-700 dark:text-neutral-400 hover:text-black *:dark:hover:text-white transition-colors">
         <a
           href="https://github.com/hoony6134"
           target="_blank"
