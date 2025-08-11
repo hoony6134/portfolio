@@ -13,7 +13,7 @@ function ProjectCard({ project }: ProjectCardProps) {
         <img
           src={project.thumbnail}
           alt={project.title}
-          className="w-full h-auto rounded-md object-cover"
+          className="w-full h-auto rounded-xl object-cover border"
         />
       </div>
 
@@ -49,7 +49,7 @@ function ProjectCard({ project }: ProjectCardProps) {
           {project.skills.map((skill) => (
             <span
               key={skill.id}
-              className={`flex items-center gap-2 px-2 py-1 text-sm rounded ${skill.style}`}
+              className={`flex items-center gap-2 px-2 py-1 text-sm rounded-lg ${skill.style}`}
             >
               <skill.icon className="w-4 h-4" />
               {skill.name}
