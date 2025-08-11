@@ -147,7 +147,7 @@ export const projectData: ProjectData[] = [
       getProjectLinkById('cydial-app'),
     ],
     skills: mapStacksToSkills(
-      'Swift,Web,iOS,Arduino,Bootstrap,Mathematics,OpenSCAD,Maplesoft',
+      'Swift,Web,iOS,Arduino,Mathematics,OpenSCAD,Maplesoft',
     ),
   },
   {

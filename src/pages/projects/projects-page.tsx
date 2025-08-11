@@ -6,9 +6,13 @@ function ProjectsPage() {
     <div className="hero-section flex items-center justify-start min-h-screen">
       <div className="flex flex-col items-start w-full">
         <h1 className="text-4xl font-bold mb-2 mt-24">Projects</h1>
-        <p className="text-xl mb-8">
+        <p className="text-xl mb-4">
           Explore a curated selection of my past and ongoing projects — feel
           free to dive in!
+        </p>
+        <p className="text-md mb-8 text-neutral-600 dark:text-neutral-400">
+          Please note that some projects may be in progress or not fully
+          completed. This website is currently under migration.
         </p>
 
         {/* Project Cards */}
