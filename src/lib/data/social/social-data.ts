@@ -16,6 +16,7 @@ import {
   IconBrandMastodon,
   IconBrandGoogleFilled,
   IconBrandAppstore,
+  IconBrandSoundcloud,
 } from '@tabler/icons-react'
 
 export interface SocialItem {
@@ -146,6 +147,16 @@ export const socialData: SocialItem[] = [
     href: 'https://open.spotify.com/artist/73DiCrbvla9WAvdUvwuznm',
     gradientClasses: 'from-[#1BD760] to-[#1BD760]',
     verified: true,
+    category: 'entertainment',
+  },
+  {
+    id: 'soundcloud',
+    name: 'SoundCloud',
+    username: '@cyan_official',
+    icon: IconBrandSoundcloud,
+    href: 'https://soundcloud.com/cyan_official',
+    gradientClasses: 'from-[#FF5500] to-[#FF5500]',
+    verified: false,
     category: 'entertainment',
   },
   {
