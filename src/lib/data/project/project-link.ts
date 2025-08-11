@@ -20,7 +20,7 @@ export const projectLinks: ProjectLink[] = [
   {
     id: 'nutricheck-intro',
     title: 'Report',
-    url: 'https://www.science.go.kr/docviewExIn?fileGubun=invention&menuId=42&userFileName=b04220213026.pdf&systemFileName=b04220213026.pdf',
+    url: 'https://science.go.kr/mps/1075/bbs/424/moveBbsNttDetail.do?nttSn=44406',
     icon: IconFileCheck,
   },
   {
