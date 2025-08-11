@@ -19,19 +19,19 @@ export default function Header() {
         </Link>
         <Link
           to="/"
-          className="text-lg hover:font-semibold transition-colors relative after:content-[''] after:block after:h-[2px] after:bg-current after:w-0 hover:after:w-full after:transition-all after:duration-300 after:absolute after:left-0 after:-bottom-1"
+          className="text-lg hover:font-semibold transition-all relative after:content-[''] after:block after:h-[2px] after:bg-current after:w-0 hover:after:w-full after:transition-all after:duration-300 after:absolute after:left-0 after:-bottom-1"
         >
           Home
         </Link>
         <Link
           to="/social"
-          className="text-lg hover:font-semibold transition-colors relative after:content-[''] after:block after:h-[2px] after:bg-current after:w-0 hover:after:w-full after:transition-all after:duration-300 after:absolute after:left-0 after:-bottom-1"
+          className="text-lg hover:font-semibold transition-all relative after:content-[''] after:block after:h-[2px] after:bg-current after:w-0 hover:after:w-full after:transition-all after:duration-300 after:absolute after:left-0 after:-bottom-1"
         >
           Social
         </Link>
         <Link
           to="/projects"
-          className="text-lg hover:font-semibold transition-colors relative after:content-[''] after:block after:h-[2px] after:bg-current after:w-0 hover:after:w-full after:transition-all after:duration-300 after:absolute after:left-0 after:-bottom-1"
+          className="text-lg hover:font-semibold transition-all relative after:content-[''] after:block after:h-[2px] after:bg-current after:w-0 hover:after:w-full after:transition-all after:duration-300 after:absolute after:left-0 after:-bottom-1"
         >
           Projects
         </Link>
@@ -39,7 +39,7 @@ export default function Header() {
           href="https://scian.xyz/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center text-lg hover:font-semibold transition-colors relative after:content-[''] after:block after:h-[2px] after:bg-current after:w-0 hover:after:w-full after:transition-all after:duration-300 after:absolute after:left-0 after:-bottom-1"
+          className="flex items-center text-lg hover:font-semibold transition-all relative after:content-[''] after:block after:h-[2px] after:bg-current after:w-0 hover:after:w-full after:transition-all after:duration-300 after:absolute after:left-0 after:-bottom-1"
         >
           Blog
           <IconExternalLink stroke={1.5} size={18} className="ml-2" />
