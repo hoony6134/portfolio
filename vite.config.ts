@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import viteReact from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
+import { VitePluginRadar } from 'vite-plugin-radar'
 
 import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
 import { resolve } from 'node:path'
@@ -11,6 +12,11 @@ export default defineConfig({
     TanStackRouterVite({ autoCodeSplitting: true }),
     viteReact(),
     tailwindcss(),
+    VitePluginRadar({
+      analytics: {
+        id: 'G-696XF00H9P',
+      },
+    }),
   ],
   resolve: {
     alias: {
