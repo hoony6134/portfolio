@@ -232,25 +232,23 @@ export const projectData: ProjectData[] = [
   //     'Figma,Design,Communication,UI/UX,Python,Socket Communication',
   //   ),
   // },
-  // {
-  //   id: 'languard',
-  //   title: 'LanGuard',
-  //   verified: true,
-  //   subtitle: 'Profanity Filtering Browser Extension',
-  //   date: '2023',
-  //   featured: false,
-  //   award:
-  //     'Chrome Web Store Featured Publisher Certification, School Representative Presentation',
-  //   headline:
-  //     'Chrome extension program to prevent profanity and abusive language input on SNS',
-  //   description:
-  //     'LanGuard is a Chrome extension that detects and blocks the input of profanity and abusive language, creating a proper SNS culture.',
-  //   thumbnail: 'https://i.imgur.com/5w6oRHH.png',
-  //   links: [getProjectLinkById('languard-chrome')],
-  //   skills: mapStacksToSkills(
-  //     'JavaScript,Korean Language,Chrome,Browser Extension,SNS,Final Cut Pro,Python',
-  //   ),
-  // },
+  {
+    id: 'languard',
+    title: 'LanGuard',
+    verified: true,
+    subtitle: 'Profanity Filtering Browser Extension',
+    date: '2023',
+    featured: false,
+    award:
+      'Chrome Web Store Featured Publisher Certification, Representative Presentation in DDSHS',
+    headline:
+      'Chrome extension program to prevent profanity and abusive language input on SNS',
+    description:
+      'LanGuard is a Chrome extension that detects and blocks the input of profanity and abusive language, creating a proper SNS culture.',
+    thumbnail: 'images/thumbs/languard.png',
+    links: [getProjectLinkById('languard-chrome')],
+    skills: mapStacksToSkills('JavaScript,Chrome'),
+  },
   // {
   //   id: 'car-evaluation',
   //   title: 'Car Evaluation',
