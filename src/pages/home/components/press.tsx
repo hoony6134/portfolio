@@ -9,7 +9,7 @@ function Press() {
         <p className="text-xl mb-8">
           Here you can find my press coverage and mentions.
         </p>
-        <div className="grid grid-cols-2 gap-6 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
           {pressData.map((press) => (
             <PressCard key={press.id} press={press} />
           ))}

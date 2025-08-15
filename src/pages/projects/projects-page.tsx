@@ -31,7 +31,7 @@ function ProjectsPage() {
         </p>
 
         {/* Project Cards */}
-        <div className="grid grid-cols-1 gap-12">
+        <div className="grid grid-cols-1 gap-8 sm:gap-12 xl:gap-16 2xl:gap-20 w-full">
           {projectData.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
