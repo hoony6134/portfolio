@@ -1,4 +1,4 @@
-import { IconDeviceDesktop, IconMoon, IconSun } from '@tabler/icons-react'
+import { IconShadow, IconMoon, IconSun } from '@tabler/icons-react'
 import { useTheme } from '../lib/contexts/theme-context'
 
 export default function ThemeSwitch() {
@@ -7,7 +7,7 @@ export default function ThemeSwitch() {
   const themes = [
     { key: 'light' as const, icon: IconSun, label: 'Light' },
     { key: 'dark' as const, icon: IconMoon, label: 'Dark' },
-    { key: 'system' as const, icon: IconDeviceDesktop, label: 'System' },
+    { key: 'system' as const, icon: IconShadow, label: 'System' },
   ]
 
   const currentThemeIndex = themes.findIndex((t) => t.key === theme)
