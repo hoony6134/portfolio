@@ -1,5 +1,6 @@
 import Experience from './components/experience'
 import Hero from './components/hero'
+import Press from './components/press'
 // import Skills from './components/skills'
 import { Element } from 'react-scroll'
 
@@ -11,6 +12,9 @@ function HomePage() {
       </Element>
       <Element name="experience">
         <Experience />
+      </Element>
+      <Element name="press">
+        <Press />
       </Element>
       {/* <Element name="skills">
         <Skills />
