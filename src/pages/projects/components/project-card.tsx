@@ -7,7 +7,10 @@ interface ProjectCardProps {
 
 function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 xl:gap-8">
+    <div className="relative flex flex-col sm:flex-row gap-4 sm:gap-6 xl:gap-8">
+      <span className="absolute top-0 right-0 text-sm py-1.5 px-2 text-neutral-500 dark:text-neutral-400 rounded-xl font-semibold bg-neutral-100 dark:bg-neutral-800">
+        {project.date}
+      </span>
       {/* Thumbnail */}
       <div className="flex-shrink-0 w-full sm:w-2/5 md:w-1/3">
         <img
