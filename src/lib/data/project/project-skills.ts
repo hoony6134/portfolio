@@ -23,7 +23,10 @@ import {
   SiJavascript,
   SiTensorflow,
   SiLinux,
+  SiCplusplus,
 } from 'react-icons/si'
+import { AiFillEye } from 'react-icons/ai'
+import { GiRobotLeg } from 'react-icons/gi'
 
 export interface ProjectSkill {
   id: string
@@ -354,14 +357,6 @@ export const projectSkills: ProjectSkill[] = [
     description: "Apple's machine learning framework.",
   },
   {
-    id: 'cpp',
-    name: 'C++',
-    icon: FaCog,
-    style:
-      'bg-gradient-to-br from-blue-700 to-blue-900 text-white font-semibold',
-    description: 'C++ programming language.',
-  },
-  {
     id: 'wifi',
     name: 'Wi-Fi',
     icon: FaGlobe,
@@ -472,5 +467,29 @@ export const projectSkills: ProjectSkill[] = [
     style:
       'bg-gradient-to-br from-gray-600 to-gray-800 text-white font-semibold',
     description: 'Information technology.',
+  },
+  {
+    id: 'cpp',
+    name: 'C++',
+    icon: SiCplusplus,
+    style:
+      'bg-gradient-to-br from-blue-700 to-blue-900 text-white font-semibold',
+    description: 'C++ programming language.',
+  },
+  {
+    id: 'opencv',
+    name: 'OpenCV',
+    icon: AiFillEye,
+    style:
+      'bg-gradient-to-br from-red-600 via-green-600 to-blue-600 text-white font-semibold',
+    description: 'OpenCV library for computer vision.',
+  },
+  {
+    id: 'physical-computing',
+    name: 'Physical Computing',
+    icon: GiRobotLeg,
+    style:
+      'bg-gradient-to-br from-green-500 to-blue-500 text-white font-semibold',
+    description: 'Physical computing and robotics.',
   },
 ]

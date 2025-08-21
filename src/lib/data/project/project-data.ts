@@ -76,6 +76,8 @@ function mapStacksToSkills(stacksString: string): ProjectSkill[] {
     Physics: 'physics',
     IT: 'it',
     Wiki: 'web',
+    OpenCV: 'opencv',
+    'Physical Computing': 'physical-computing',
   }
 
   const stacks = stacksString.split(',').map((s) => s.trim())
@@ -248,6 +250,23 @@ export const projectData: ProjectData[] = [
     thumbnail: 'images/thumbs/languard.png',
     links: [getProjectLinkById('languard-chrome')],
     skills: mapStacksToSkills('JavaScript,Chrome'),
+  },
+  {
+    id: 'hinguri-pingpong',
+    title: 'Hinguri-Pingpong',
+    verified: false,
+    subtitle: '4-link Linear Ping Pong Machine',
+    date: '2025',
+    featured: false,
+    headline:
+      'Developing 4-link linear ping pong machine with C++ and OpenCV (as a PM and a developer)',
+    description:
+      'A project focused on creating a 4-link linear ping pong machine using C++ and OpenCV for computer vision tasks.',
+    thumbnail: 'images/thumbs/hinguri-pingpong.png',
+    links: [getProjectLinkById('hinguri-pingpong-github')],
+    skills: mapStacksToSkills(
+      'C++,OpenCV,Mathematics,Physics,Physical Computing',
+    ),
   },
   // {
   //   id: 'car-evaluation',

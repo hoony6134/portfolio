@@ -137,4 +137,10 @@ export const projectLinks: ProjectLink[] = [
     url: 'https://scian.xyz',
     icon: IconWorld,
   },
+  {
+    id: 'hinguri-pingpong-github',
+    title: 'GitHub',
+    url: 'https://github.com/studio-void/hinguri-pingpong',
+    icon: IconBrandGithub,
+  },
 ]
