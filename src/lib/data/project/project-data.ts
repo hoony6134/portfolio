@@ -7,90 +7,30 @@ function getProjectLinkById(id: string): ProjectLink {
   return link
 }
 
-function getProjectSkillById(id: string): ProjectSkill {
-  const skill = projectSkills.find((skill) => skill.id === id)
-  if (!skill) throw new Error(`ProjectSkill not found: ${id}`)
-  return skill
-}
-
-// Helper function to map stacks string to skill IDs
+// Helper function to map stacks string to skills by name
 function mapStacksToSkills(stacksString: string): ProjectSkill[] {
   if (!stacksString) return []
-
-  const stackMap: { [key: string]: string } = {
-    Web: 'web',
-    iOS: 'ios',
-    Android: 'android',
-    TensorFlow: 'tensorflow',
-    Chemistry: 'chemistry',
-    Biology: 'biology',
-    Swift: 'swift',
-    Arduino: 'arduino',
-    Bootstrap: 'bootstrap',
-    Mathematics: 'math',
-    OpenSCAD: 'openscad',
-    Maplesoft: 'maplesoft',
-    Environment: 'environment',
-    '3D Design': '3d-design',
-    Inventor: 'inventor',
-    'Fusion 360': 'fusion360',
-    SNS: 'sns',
-    Linux: 'linux',
-    'Google Cloud Platform': 'web',
-    'Node.js': 'nodejs',
-    MySQL: 'mysql',
-    Figma: 'figma',
-    Design: 'design',
-    'Business Model': 'business-model',
-    Communication: 'communication',
-    'UI/UX': 'uiux',
-    Python: 'python',
-    'Socket Communication': 'socket',
-    JavaScript: 'javascript',
-    'Korean Language': 'korean',
-    Chrome: 'chrome',
-    'Browser Extension': 'browser-extension',
-    AI: 'ai',
-    'Machine Learning': 'machine-learning',
-    Tkinter: 'tkinter',
-    'Scikit-learn': 'scikit-learn',
-    'Final Cut Pro': 'design',
-    Music: 'music',
-    'Logic Pro': 'logic-pro',
-    VST: 'vst',
-    Producing: 'producing',
-    'Core ML': 'core-ml',
-    'C++': 'cpp',
-    'Wi-Fi': 'wifi',
-    'Earth Science': 'earth-science',
-    HPLC: 'hplc',
-    Spectrophotometer: 'spectrophotometer',
-    'Advanced Equipment': 'advanced-equipment',
-    Extraction: 'extraction',
-    LLM: 'llm',
-    'Fine-tuning': 'fine-tuning',
-    'Genetic Engineering': 'genetic-engineering',
-    React: 'react',
-    Career: 'career',
-    'Linear Algebra': 'linear-algebra',
-    Physics: 'physics',
-    IT: 'it',
-    Wiki: 'web',
-    OpenCV: 'opencv',
-    'Physical Computing': 'physical-computing',
-  }
 
   const stacks = stacksString.split(',').map((s) => s.trim())
   const skills: ProjectSkill[] = []
 
   stacks.forEach((stack) => {
-    const skillId = stackMap[stack]
-    if (skillId) {
-      try {
-        skills.push(getProjectSkillById(skillId))
-      } catch (error) {
-        console.warn(`Skill not found: ${skillId} for stack: ${stack}`)
-      }
+    // 먼저 정확한 이름 매칭 시도
+    let foundSkill = projectSkills.find((skill) => skill.name === stack)
+
+    // 정확한 매칭이 없으면 대소문자 구분 없이 매칭 시도
+    if (!foundSkill) {
+      foundSkill = projectSkills.find(
+        (skill) => skill.name.toLowerCase() === stack.toLowerCase(),
+      )
+    }
+
+    if (foundSkill) {
+      skills.push(foundSkill)
+    } else {
+      console.warn(
+        `No skill found for stack: ${stack}. Available skills: ${projectSkills.map((s) => s.name).join(', ')}`,
+      )
     }
   })
 
@@ -149,7 +89,7 @@ export const projectData: ProjectData[] = [
       getProjectLinkById('cydial-app'),
     ],
     skills: mapStacksToSkills(
-      'Swift,Web,iOS,Arduino,Mathematics,OpenSCAD,Maplesoft',
+      'Mathematics,3D Design,Inventor,Fusion 360,OpenSCAD,Maplesoft',
     ),
   },
   {
@@ -249,7 +189,7 @@ export const projectData: ProjectData[] = [
       'LanGuard is a Chrome extension that detects and blocks the input of profanity and abusive language, creating a proper SNS culture.',
     thumbnail: 'images/thumbs/languard.png',
     links: [getProjectLinkById('languard-chrome')],
-    skills: mapStacksToSkills('JavaScript,Chrome'),
+    skills: mapStacksToSkills('JavaScript,Chrome Extension'),
   },
   {
     id: 'hinguri-pingpong',
