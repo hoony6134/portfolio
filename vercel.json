@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/(.*)",
+      "destination": "/"
+    },
+    {
       "source": "/api/reddit/(.*)",
       "destination": "https://www.reddit.com/$1"
     },
@@ -15,10 +19,6 @@
     {
       "source": "/api/stackexchange/(.*)",
       "destination": "https://api.stackexchange.com/$1"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
     }
   ]
 }
