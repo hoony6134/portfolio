@@ -1,6 +1,11 @@
 import type { ProjectData } from '@/lib/data/project/project-data'
 import { BsFillAwardFill, BsPatchCheckFill } from 'react-icons/bs'
-import { HoverCard, HoverCardContent, HoverCardTrigger, ImageModal } from '@/components/ui'
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+  ImageModal,
+} from '@/components/ui'
 import { useState } from 'react'
 
 interface ProjectCardProps {

@@ -30,7 +30,7 @@ export function ImageModal({ isOpen, onClose, src, alt }: ImageModalProps) {
   if (!isOpen) return null
 
   return (
-    <div 
+    <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
       onClick={onClose}
     >
@@ -39,11 +39,11 @@ export function ImageModal({ isOpen, onClose, src, alt }: ImageModalProps) {
         <button
           onClick={onClose}
           className="absolute top-4 right-4 z-10 p-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-colors duration-200 text-white hover:text-white/80"
-          aria-label="닫기"
+          aria-label="Close modal"
         >
           <X size={24} />
         </button>
-        
+
         {/* Image */}
         <img
           src={src}
