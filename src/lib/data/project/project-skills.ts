@@ -495,4 +495,20 @@ export const projectSkills: ProjectSkill[] = [
       'bg-gradient-to-br from-green-500 to-blue-500 text-white font-semibold',
     description: 'Physical computing and robotics.',
   },
+  {
+    id: 'iot',
+    name: 'IoT',
+    icon: GiRobotLeg,
+    style:
+      'bg-gradient-to-br from-teal-500 to-blue-500 text-white font-semibold',
+    description: 'Internet of Things development.',
+  },
+  {
+    id: 'instagram',
+    name: 'Instagram',
+    icon: AiFillInstagram,
+    style:
+      'bg-gradient-to-br from-pink-500 to-purple-500 text-white font-semibold',
+    description: 'Instagram marketing and content creation.',
+  },
 ]

@@ -34,9 +34,7 @@ function ProjectCard({ project }: ProjectCardProps) {
                 <HoverCardContent>
                   <p>
                     <BsFillAwardFill className="inline-block mr-1" />
-                    {project.award
-                      ? 'Award: ' + project.award
-                      : 'Verified Project'}
+                    {project.award ? '' + project.award : 'Verified Project'}
                   </p>
                 </HoverCardContent>
               </HoverCard>

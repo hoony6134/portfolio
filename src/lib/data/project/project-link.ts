@@ -143,4 +143,34 @@ export const projectLinks: ProjectLink[] = [
     url: 'https://github.com/studio-void/hinguri-pingpong',
     icon: IconBrandGithub,
   },
+  {
+    id: 'campass-fe-github',
+    title: 'GitHub (FE)',
+    url: 'https://github.com/studio-void/campass-fe',
+    icon: IconBrandGithub,
+  },
+  {
+    id: 'campass-be-github',
+    title: 'GitHub (BE)',
+    url: 'https://github.com/studio-void/campass-be',
+    icon: IconBrandGithub,
+  },
+  {
+    id: 'campass-website',
+    title: 'Demo',
+    url: 'https://campass.scian.xyz/',
+    icon: IconWorld,
+  },
+  {
+    id: 'shimter-website',
+    title: 'Website',
+    url: 'https://shimter-fe.vercel.app/',
+    icon: IconWorld,
+  },
+  {
+    id: 'shimter-github',
+    title: 'GitHub',
+    url: 'https://github.com/hoony6134/shimter-fe',
+    icon: IconBrandGithub,
+  },
 ]
