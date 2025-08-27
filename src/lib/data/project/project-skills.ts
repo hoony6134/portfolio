@@ -10,6 +10,7 @@ import {
   FaCog,
   FaBusinessTime,
   FaGlobeAfrica,
+  FaCube,
 } from 'react-icons/fa'
 import { VscGlobe } from 'react-icons/vsc'
 import {
@@ -24,9 +25,11 @@ import {
   SiTensorflow,
   SiLinux,
   SiCplusplus,
+  SiAutodesk,
 } from 'react-icons/si'
-import { AiFillEye } from 'react-icons/ai'
-import { GiRobotLeg } from 'react-icons/gi'
+import { AiFillEye, AiFillInstagram } from 'react-icons/ai'
+import { GiMapleLeaf, GiRobotLeg } from 'react-icons/gi'
+import { BsPeopleFill } from 'react-icons/bs'
 
 export interface ProjectSkill {
   id: string
@@ -137,7 +140,7 @@ export const projectSkills: ProjectSkill[] = [
   {
     id: 'maplesoft',
     name: 'Maplesoft',
-    icon: FaCalculator,
+    icon: GiMapleLeaf,
     style: 'bg-gradient-to-br from-red-600 to-red-800 text-white font-semibold',
     description: 'Mathematical computation software.',
   },
@@ -152,7 +155,7 @@ export const projectSkills: ProjectSkill[] = [
   {
     id: '3d-design',
     name: '3D Design',
-    icon: FaCog,
+    icon: FaCube,
     style:
       'bg-gradient-to-br from-indigo-500 to-indigo-700 text-white font-semibold',
     description: '3D modeling and design.',
@@ -160,7 +163,7 @@ export const projectSkills: ProjectSkill[] = [
   {
     id: 'inventor',
     name: 'Inventor',
-    icon: FaCog,
+    icon: SiAutodesk,
     style:
       'bg-gradient-to-br from-blue-600 to-blue-800 text-white font-semibold',
     description: 'Autodesk Inventor CAD software.',
@@ -176,7 +179,7 @@ export const projectSkills: ProjectSkill[] = [
   {
     id: 'sns',
     name: 'SNS',
-    icon: FaGlobe,
+    icon: BsPeopleFill,
     style:
       'bg-gradient-to-br from-blue-500 to-blue-700 text-white font-semibold',
     description: 'Social networking and digital marketing.',
@@ -221,8 +224,8 @@ export const projectSkills: ProjectSkill[] = [
     description: 'Visual and UX design.',
   },
   {
-    id: 'business-model',
-    name: 'Business Model',
+    id: 'business',
+    name: 'Business',
     icon: FaBusinessTime,
     style:
       'bg-gradient-to-br from-yellow-600 to-yellow-800 text-white font-semibold',
@@ -481,7 +484,7 @@ export const projectSkills: ProjectSkill[] = [
     name: 'OpenCV',
     icon: AiFillEye,
     style:
-      'bg-gradient-to-br from-red-600 via-green-600 to-blue-600 text-white font-semibold',
+      'bg-gradient-to-br from-red-600 to-blue-600 text-white font-semibold',
     description: 'OpenCV library for computer vision.',
   },
   {

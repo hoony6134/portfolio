@@ -115,7 +115,7 @@ export const projectLinks: ProjectLink[] = [
   },
   {
     id: 'goding-website',
-    title: 'Business Website',
+    title: 'Website',
     url: 'https://goding.us/',
     icon: IconWorld,
   },

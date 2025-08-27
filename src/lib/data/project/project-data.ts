@@ -228,22 +228,6 @@ export const projectData: ProjectData[] = [
   //   ),
   // },
   // {
-  //   id: 'cyan',
-  //   title: 'Cyan',
-  //   verified: true,
-  //   subtitle: 'Producing Project',
-  //   date: '2021~',
-  //   featured: false,
-  //   award: 'Spotify Official Artist Certification',
-  //   headline:
-  //     'Study-focused concentration beat making and producing project for learning',
-  //   description: 'Creating study-optimized beats for studying.',
-  //   thumbnail:
-  //     'https://i.scdn.co/image/ab6761610000e5ebfe9e198b5abac666e95030ff',
-  //   links: [getProjectLinkById('cyan-spotify')],
-  //   skills: mapStacksToSkills('Music,Logic Pro,VST,Producing'),
-  // },
-  // {
   //   id: 'wbc-id',
   //   title: 'WBC iD',
   //   verified: false,
@@ -257,36 +241,6 @@ export const projectData: ProjectData[] = [
   //   thumbnail: 'https://i.imgur.com/0KQfPqc.png',
   //   links: [getProjectLinkById('wbc-github')],
   //   skills: mapStacksToSkills('Swift,iOS,AI,Machine Learning,Core ML,Biology'),
-  // },
-  // {
-  //   id: 'elder-guardian',
-  //   title: 'Elder Guardian',
-  //   verified: false,
-  //   subtitle: 'Protecting Elders from threats with Physical Computing',
-  //   date: '2023',
-  //   featured: false,
-  //   headline:
-  //     'Integrated safety management and communication system for the elderly based on physical computing',
-  //   description:
-  //     "Provides fall detection and detection of others' approach and reporting functions, and suggestions for going out according to temperature and humidity conditions for the safety of the elderly.",
-  //   thumbnail: 'https://i.imgur.com/MOcUewH.png',
-  //   links: [getProjectLinkById('elder-guardian-github')],
-  //   skills: mapStacksToSkills('Arduino,Web,C++,Communication,Wi-Fi'),
-  // },
-  // {
-  //   id: 'gravity-correction-master',
-  //   title: 'Gravity Correction Master',
-  //   verified: false,
-  //   subtitle: 'Easy Gravity Correction Software',
-  //   date: '2023',
-  //   featured: false,
-  //   headline:
-  //     'GUI-based fast gravity anomaly correction and calculation program using Python',
-  //   description:
-  //     'A GUI-based Python program that helps with accurate and fast calculation of gravity anomalies and gravity correction.',
-  //   thumbnail: 'https://i.imgur.com/14Oyuev.png',
-  //   links: [getProjectLinkById('gravity-github')],
-  //   skills: mapStacksToSkills('Python,Earth Science,Tkinter'),
   // },
   // {
   //   id: 'biryong-research',
@@ -354,22 +308,21 @@ export const projectData: ProjectData[] = [
   //   links: [getProjectLinkById('scian-links')],
   //   skills: mapStacksToSkills('Web,Linux,Node.js,MySQL'),
   // },
-  // {
-  //   id: 'goding',
-  //   title: '갓잉 (Goding)',
-  //   verified: false,
-  //   subtitle: 'Sharing-oriented Study Planning and Records Management Platform',
-  //   date: '2024~',
-  //   featured: true,
-  //   headline: 'Goding: Sharing-centered study planning and recording platform',
-  //   description:
-  //     'A sharing-centered study planning and recording platform that helps plan studies, compare with recorded content based on this, and share with people from various groups to create study methods and routines that suit you.',
-  //   thumbnail: 'https://assets.goding.us/preview.png',
-  //   links: [getProjectLinkById('goding-website')],
-  //   skills: mapStacksToSkills(
-  //     'iOS,React,Web,Linux,Node.js,MySQL,Figma,SNS,Business Model',
-  //   ),
-  // },
+  {
+    id: 'goding',
+    title: 'Goding',
+    verified: false,
+    subtitle: 'Sharing-oriented Study Planning and Recording Platform',
+    date: '2024-2025',
+    featured: false,
+    headline:
+      'Developed sharing-oriented study planning and recording platform as a CEO and a PM, an iOS developer',
+    description:
+      'A sharing-oriented study planning and recording platform that helps plan studies, compare with recorded content based on this, and share with people from various groups to create study methods and routines that suit you.',
+    thumbnail: '/images/thumbs/goding.png',
+    links: [getProjectLinkById('goding-website')],
+    skills: mapStacksToSkills('iOS,Swift,React,MySQL,Figma,SNS,Business'),
+  },
   // {
   //   id: 'goding-ai',
   //   title: '갓잉 AI 어시스턴트',
