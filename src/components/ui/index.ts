@@ -1,4 +1,5 @@
 export * from './avatar'
 export * from './button'
 export * from './hover-card'
+export * from './image-modal'
 export * from './spinner'
