@@ -11,7 +11,6 @@ import {
   loadRedditData,
   loadInstagramData,
   loadSolvedacData,
-  loadBojData,
 } from '@/lib/utils/social-loader'
 
 interface SocialCardProps {
@@ -117,11 +116,11 @@ function SocialCard({ social }: SocialCardProps) {
               }
               break
             case 'boj':
-              const bojData = await loadBojData()
-              if (bojData?.displayText) {
+              const solvedacBojData = await loadSolvedacData()
+              if (solvedacBojData?.displayText) {
                 additionalValue = {
                   label: '',
-                  value: bojData.displayText,
+                  value: solvedacBojData.displayText,
                   style: 'boj' as const,
                   className: 'font-bold text-[#0076C0]',
                 }

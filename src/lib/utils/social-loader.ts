@@ -4,7 +4,7 @@ import { fetchGitHubUserData } from './loaders/github'
 import { fetchRedditUserData } from './loaders/reddit'
 import { fetchInstagramUserData } from './loaders/instagram'
 import { fetchSolvedac } from './loaders/solvedac'
-import { fetchBaekjoon } from './loaders/boj'
+// import { fetchBaekjoon } from './loaders/boj'
 
 export const loadSocialDataWithDynamicValues = async (): Promise<
   SocialItem[]
@@ -16,14 +16,14 @@ export const loadSocialDataWithDynamicValues = async (): Promise<
       redditKarma,
       instagramData,
       solvedacData,
-      bojData,
+      // bojData,
     ] = await Promise.all([
       fetchStackOverFlowData(),
       fetchGitHubUserData('hoony6134'),
       fetchRedditUserData('applr_'),
       fetchInstagramUserData('_jh_0105'),
       fetchSolvedac(),
-      fetchBaekjoon(),
+      // fetchBaekjoon(),
     ])
 
     const enhancedSocialData = [...socialData]
@@ -110,14 +110,15 @@ export const loadSocialDataWithDynamicValues = async (): Promise<
       }
     }
 
-    if (bojData?.displayText) {
+    // BOJ를 Solved.ac의 랭킹/문제 수 정보로 업데이트
+    if (solvedacData?.displayText) {
       const bojIndex = enhancedSocialData.findIndex((item) => item.id === 'boj')
       if (bojIndex !== -1) {
         enhancedSocialData[bojIndex] = {
           ...enhancedSocialData[bojIndex],
           additionalValue: {
             label: '',
-            value: bojData.displayText,
+            value: solvedacData.displayText,
             style: 'boj',
             className: 'font-bold text-[#0076C0]',
           },
@@ -195,11 +196,11 @@ export const loadSolvedacData = async () => {
   }
 }
 
-export const loadBojData = async () => {
-  try {
-    return await fetchBaekjoon()
-  } catch (error) {
-    console.error('Failed to load Baekjoon data:', error)
-    return null
-  }
-}
+// export const loadBojData = async () => {
+//   try {
+//     return await fetchBaekjoon()
+//   } catch (error) {
+//     console.error('Failed to load Baekjoon data:', error)
+//     return null
+//   }
+// }

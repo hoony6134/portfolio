@@ -10,12 +10,14 @@ export interface SolvedacUserData {
   arenaMaxTier: number
   arenaMaxRating: number
   rank: number
+  solvedCount: number
   tierName: string
   tierColor: string
   arenaTierName: string
   arenaTierColor: string
   arenaMaxTierName: string
   arenaMaxTierColor: string
+  displayText: string
 }
 
 export const resolveSolvedacAlgoTier = (tier: number): string => {
@@ -138,12 +140,14 @@ export const fetchSolvedac = async (): Promise<SolvedacUserData | null> => {
       arenaMaxTier: data.arenaMaxTier || 0,
       arenaMaxRating: data.arenaMaxRating || 0,
       rank: data.rank || 0,
+      solvedCount: data.solvedCount || 0,
       tierName: `${resolveSolvedacAlgoTier(data.tier || 0)} / ${data.rating || 0}`,
       tierColor: resolveSolvedacAlgoColor(data.tier || 0),
       arenaTierName: resolveSolvedacArenaTier(data.arenaTier || 0),
       arenaTierColor: resolveSolvedacArenaColor(data.arenaTier || 0),
       arenaMaxTierName: resolveSolvedacArenaTier(data.arenaMaxTier || 0),
       arenaMaxTierColor: resolveSolvedacArenaColor(data.arenaMaxTier || 0),
+      displayText: `#${(data.rank || 0).toLocaleString()} / ${(data.solvedCount || 0).toLocaleString()}`,
     }
   } catch (error) {
     console.error('Failed to fetch Solved.ac user data:', error)
