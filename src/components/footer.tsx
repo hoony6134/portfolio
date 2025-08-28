@@ -8,7 +8,7 @@ import {
 
 export default function Footer() {
   return (
-    <div className="flex flex-col items-center justify-between mx-48 my-18 gap-4">
+    <div className="flex flex-col items-center justify-between mx-8 md:mx-48 my-18 gap-4">
       <span className="flex items-center text-neutral-700 dark:text-neutral-400">
         <IconCopyright stroke={1.25} size={18} className="mr-1.5" /> 2025
         JeongHoon Lim, All rights reserved.
