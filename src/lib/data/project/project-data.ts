@@ -54,6 +54,26 @@ export interface ProjectData {
 
 export const projectData: ProjectData[] = [
   {
+    id: 'shimter',
+    title: 'Shimter',
+    verified: true,
+    subtitle: 'AI-Powered Climate-Responsive Smart Farming Solution',
+    date: '2025~',
+    featured: true,
+    award:
+      'Encouragemnt Award in Honam-is-hackathon 2025, Special Award in College Student Start-up Competition (Chairman of Korea Scholarship Foundation)',
+    headline:
+      'Leading the development of an AI-powered smart farm integrating IoT and personalized data as a president.',
+    description:
+      'An AI-powered smart farm that integrates IoT devices and personalized data to optimize agricultural practices and enhance productivity.',
+    thumbnail: '/images/thumbs/shimter.png',
+    links: [
+      getProjectLinkById('shimter-github'),
+      getProjectLinkById('shimter-website'),
+    ],
+    skills: mapStacksToSkills('AI,IoT,Environment,React,Business'),
+  },
+  {
     id: 'nutricheck',
     title: 'NutriCheck',
     verified: true,
@@ -343,25 +363,6 @@ export const projectData: ProjectData[] = [
     ],
     skills: mapStacksToSkills('AI,React,Business'),
   },
-  // {
-  //   id: 'shimter',
-  //   title: 'Shimter',
-  //   verified: true,
-  //   subtitle: 'AI-Powered Smart Farm with IoT and Personalized Data',
-  //   date: '2025',
-  //   featured: true,
-  //   award: 'Encouragemnt Award in Honam-is-hackathon 2025',
-  //   headline:
-  //     'Leading the development of an AI-powered smart farm integrating IoT and personalized data as a FE Developer.',
-  //   description:
-  //     'An AI-powered smart farm that integrates IoT devices and personalized data to optimize agricultural practices and enhance productivity.',
-  //   thumbnail: '/images/thumbs/shimter.png',
-  //   links: [
-  //     getProjectLinkById('shimter-github'),
-  //     getProjectLinkById('shimter-website'),
-  //   ],
-  //   skills: mapStacksToSkills('AI,IoT,Environment,React,Business'),
-  // },
   // {
   //   id: 'genesort-ai',
   //   title: 'GeneSort AI',
